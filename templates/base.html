@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link href="{% static 'css/base.css' %}" rel="stylesheet">
+    <!-- <link href="{% static 'css/bootstrap/bootstrap.min.css' %}" rel="stylesheet">
+    <script type="module" src="{% static 'formset/js/django-formset.js' %}"></script> -->
+</head>
+<body>
+    <div id="header">
+        <span class="logo">Mwelapp</span>
+        {% if request.user.is_authenticated and profile_exist == True %}
+            <ul class="menu">
+                <li {% if section == "home" %}class="selected"{% endif %}>
+                    <a href="{% url "index" %}">Home</a>
+                </li>
+                <li {% if section == "profile" %}class="selected"{% endif %}>
+                    <a href="{% url "profile" %}">Profile</a>
+                </li>
+            </ul>
+        {% endif %}
+        <span class="user">
+            {% if request.user.is_authenticated %}
+                Hello {{ request.user.first_name|default:request.user.username }}, 
+                <form method="post" action="{% url 'logout' %}">
+                    {% csrf_token %}
+                    <button type="submit">logout</button>
+                </form>
+            {% else %}
+                <ul class="menu">
+                    <li>
+                        <a href="{% url 'signup' %}">Sign Up</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'login' %}">Log-in</a>
+                    </li>
+                </ul>
+                
+            {% endif %}
+        </span>
+    </div>
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li class="{{ message.tags }}">
+                {{ message|safe }}
+                <a href="#" class="close">X</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}
+    <div id="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+    <div id="footer"></div>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}Log-out{% endblock %}
+
+{% block content %}
+    <h1>Logged out of the mwelapp</h1>
+    <p>
+        You have been successfully logged out.
+        <br>You can <a href="{% url 'login' %}">Log-in again.</a>
+    </p>
+    
+{% endblock %}

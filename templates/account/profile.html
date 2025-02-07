@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title %} Profile {% endblock %}
+
+{% block content %}
+    <h1>User Profile</h1>
+    <p>Welcome to your user profile page. You can <a href="{% url "update_profile" pk=user.profile.id %}">Edit your profile</a> or 
+        <a href="{% url "password_change" %}">change your password</a>.
+    </p>
+{% endblock %}

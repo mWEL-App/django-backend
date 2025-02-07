@@ -1,0 +1,2 @@
+# django-backend
+The mWEL App is designed to help adults discover their inner self and strengths, and helps them gain super power to boost their wellbeing and happiness. Currently, mWEL-App is designed more for teachers and parents who care for children. mWEL aims to help you gain super power.  You will take on challenges by exploring and accomplishing mission steps that are included in this app. 
