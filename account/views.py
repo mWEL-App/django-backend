@@ -39,7 +39,7 @@ class UpdateUserProfileView(LoginRequiredMixin,  UpdateView):
     form_class = UserProfileEditForm
     success_url = "/account/profile/"
     profile_exist = True
-    extra_content = {'profile_exist': profile_exist}
+    extra_context = {'profile_exist': profile_exist}
 
     def form_valid(self, form):
         messages.add_message(self.request, messages.INFO, 'Profile successfully Updated.')
