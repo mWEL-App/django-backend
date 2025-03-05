@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}Home and Living Challenges{% endblock %}
+{% block content %}
+    <h1>Home and Living Challenges</h1>
+    <p>This set of items are a list of potential stressors experiencing by many adults in our community. 
+        Please check the STRESSORS that you have been experiencing and <span class="underline bold">finding stressful in the past 12 months.</span>  
+        Please indicate Yes or No, and level of stress as true to yourself as possible. 
+        <span class="bold">We will base on your needs to suggest support service for you.</span> </p>
+    {% if display_form %}
+        <form method="post">
+            {% csrf_token %}
+            <p>Financial Situation</p>
+            {{ financial_form.as_p }}
+            <p>Physical Health</p>
+            {{ physicalhealth_form.as_p}}
+            <input type="submit" value="Submit">
+        </form>
+    {% else %}
+        <p>Scoring (For Report Card)</p>
+        <p>The overall score of your submission are is {{ score }} </p>
+        <p>Financial Stress  - {{ financial_stress }}</p>
+        <p>Physical Health Stress - {{ phy_health_stress }}</p>
+    {% endif %}
+    
+
+{% endblock %}

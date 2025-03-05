@@ -275,3 +275,11 @@ img.user-detail {
     font-style:italic;
     color:#ccc;
 }
+
+.underline {
+    text-decoration: underline;
+} 
+
+.bold {
+    font-weight: bold;
+}

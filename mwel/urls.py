@@ -23,6 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('mwelapp.urls')),
     path('account/', include('account.urls')),
+    path('stresstracker/', include('stresstracker.urls')),
 ] 
 
 if settings.DEBUG:

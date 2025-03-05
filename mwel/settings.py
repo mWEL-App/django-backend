@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'mwelapp.apps.MwelappConfig',
     'account.apps.AccountConfig',
+    'stresstracker.apps.StresstrackerConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
